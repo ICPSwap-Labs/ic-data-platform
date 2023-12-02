@@ -1,0 +1,17 @@
+{
+  "canisters": {
+    "data_platform": {
+      "candid": "src/data_platform.did",
+      "package": "data_platform",
+      "type": "rust"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
