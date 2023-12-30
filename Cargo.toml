@@ -13,7 +13,7 @@ crate-type = ["cdylib"]
 path = "src/lib.rs"
 
 [dependencies]
-candid = {version="= 0.9.3",features = ["parser"]}
+candid = {version="= 0.9.10",features = ["parser"]}
 ic-cdk = "0.10.0"
 ic-cdk-macros = "0.7.1"
 serde = "1.0.132"
