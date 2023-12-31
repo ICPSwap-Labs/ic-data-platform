@@ -18,8 +18,6 @@ pub struct Function {
     pub func_name: String,
     pub func_type: String, //request,forward
     pub canister_id: Option<Principal>,
-    pub request_entities: Vec<Entity>,
-    pub response_entities: Vec<Entity>,
 }
 
 #[derive(CandidType, Serialize, Deserialize, Clone, Debug, PartialEq)]

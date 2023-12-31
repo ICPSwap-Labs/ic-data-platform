@@ -10,8 +10,6 @@ type Function = record {
   func_name : text;
   func_type : text;
   canister_id : opt principal;
-  request_entities : vec Entity;
-  response_entities : vec Entity;
 };
 
 type EntityMapping = record {
