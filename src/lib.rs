@@ -35,7 +35,7 @@ fn create_function_mapping(function_mapping: FunctionMapping) -> Result<bool, St
             Some(owner) => {
                 if owner != caller() {
                     result = false;
-                    error = "Only the owner has executive permission.".to_string();
+                    error = "Only the owner has permission.".to_string();
                 } else {
                     state.function_mapping.insert(
                         function_mapping.request_func.func_name.clone(),
@@ -45,7 +45,7 @@ fn create_function_mapping(function_mapping: FunctionMapping) -> Result<bool, St
             }
             None => {
                 result = false;
-                error = "No executive permission.".to_string();
+                error = "No permission.".to_string();
             }
         }
     });
@@ -126,14 +126,14 @@ fn create_function(function: Function) -> bool {
             Some(owner) => {
                 assert!(
                     owner == caller(),
-                    "Only the owner has executive permission."
+                    "Only the owner has permission."
                 );
                 state
                     .function_types
                     .insert(function.func_name.clone(), function.clone());
             }
             None => {
-                assert!(false, "No executive permission");
+                assert!(false, "No permission");
             }
         }
     });
