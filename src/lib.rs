@@ -53,6 +53,8 @@ fn create_function_mapping(function_mapping: FunctionMapping) -> Result<bool, St
     if !result {
         insert_log(caller(), &error);
         return Err(error.to_string());
+    }else {
+        insert_log(caller(), "Access");
     }
 
     let request_func = function_mapping.request_func;
