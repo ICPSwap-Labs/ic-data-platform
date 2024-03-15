@@ -1,0 +1,61 @@
+type Entity = record {
+  name : text;
+  code : text;
+  entity_type : text;
+  fields : vec Entity;
+  is_opt : bool;
+};
+
+type Function = record {
+  func_name : text;
+  func_type : text;
+  canister_id : opt principal;
+};
+
+type EntityMapping = record {
+  source : Entity;
+  target : Entity;
+};
+
+type FunctionMapping = record {
+  request_func : Function;
+  forward_func : Function;
+  request_mapping : EntityMapping;
+  response_mapping : EntityMapping;
+};
+
+type HeaderField = record {
+  text;
+  text;
+};
+
+type HttpRequest = record {
+  method : text;
+  url : text;
+  headers : vec HeaderField;
+  body : vec nat8;
+};
+type HttpResponse = record {
+  status_code : nat16;
+  headers : vec HeaderField;
+  body : vec nat8;
+  upgrade : bool;
+};
+
+type Log = record {
+  caller : principal;
+  content : text;
+  timestamp : nat64;
+};
+type Result = 
+ variant {
+   Err: text;
+   Ok: bool;
+ };
+
+service : {
+  "create_function_mapping" : (FunctionMapping) -> (Result);
+  "query_function" : (text) -> (vec Function) query;
+  "query_function_mapping" : () -> (vec FunctionMapping) query;
+  "query_log" : () -> (vec Log) query;
+};

@@ -1,0 +1,24 @@
+[package]
+name = "data_platform"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[target.'cfg(not(target_family = "wasm"))'.dependencies]
+async-std = { version="1.10.0", features = ["attributes"] }
+
+[lib]
+crate-type = ["cdylib"]
+path = "src/lib.rs"
+
+[dependencies]
+candid = {version="= 0.9.10",features = ["parser"]}
+ic-cdk = "0.10.0"
+ic-cdk-macros = "0.7.1"
+serde = "1.0.132"
+serde_json = "1.0.93"
+serde_bytes = "0.11.5"
+idl2json = { git = "https://github.com/dfinity/idl2json", rev = "v0.9.3" }
+
+
